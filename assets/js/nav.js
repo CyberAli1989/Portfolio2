@@ -124,4 +124,22 @@ $(function () {
 
         }, 1500);
     });
+
+    let close = true;
+    $('.navIcon').click(function() {
+        $(this).toggleClass('rotate')
+        $('nav ul li').click(function() {
+            $('nav').removeClass('enter').addClass('exit');
+            $('.navIcon').removeClass('rotate')
+        })
+        if(close){
+            $('nav').removeClass('nonActive').addClass('enter');
+            close = false;
+        }
+        else{
+            $('nav').removeClass('enter').addClass('exit');
+            close = true;
+            
+        }
+    })
 });

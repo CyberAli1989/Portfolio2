@@ -3,14 +3,21 @@
 @import '--temp.scss';
 @import '--variables.scss';
 @import '--animation.scss';
+.exit {
+    -webkit-animation: bounce-out-top 1.5s both;
+    animation: bounce-out-top 1.5s both;
+}
 
+.enter {
+    -webkit-animation: roll-in-bottom 0.6s ease-out both;
+    animation: roll-in-bottom 0.6s ease-out both;
+}
 #desktop {
     height: 95vh;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-
     .smallNav {
         border-radius: 15px;
         transition: 1s;
@@ -235,15 +242,33 @@
         flex-direction: column;
         align-items: center;
         overflow: hidden;
-        .exit {
-            -webkit-animation: bounce-out-top 1.5s both;
-            animation: bounce-out-top 1.5s both;
-        }
+        position: relative;
+        
+        .navIcon{
+            display: none;
+            color: #fff;
+            position: absolute;
+            right: 0;
+            width: 45px;
+            height: 45px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            margin: 8px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .top,
+            .mid,
+            .bot{
+                margin: 2px;
+                width: 20px;
+                height: 2px;
+                background: $green;
+                transition: 300ms;
 
-        .enter {
-            -webkit-animation: roll-in-bottom 0.6s ease-out both;
-            animation: roll-in-bottom 0.6s ease-out both;
+            }
         }
+       
 
         #home {
             padding: 10px;
@@ -256,6 +281,15 @@
             margin: auto 0;
 
             .description {
+                .headImg{
+                    width: 180px;
+                    height: 180px;
+                    background-color: #fff;
+                    border-radius: 50%;
+                    text-align: center;
+                    margin: 0 auto;
+                    display: none;
+                }
                 width: 80%;
                 font-size: 25px;
 
@@ -300,7 +334,8 @@
             width: 90%;
             overflow-y: scroll;
             overflow-x: hidden;
-            .intro{
+
+            .intro {
                 display: flex;
                 flex-direction: row;
                 flex-wrap: nowrap;
@@ -319,7 +354,8 @@
                 background-color: lighten($color: #333, $amount: 70%);
                 border-radius: 30px 30px 0 30px;
                 position: relative;
-                &::before{
+
+                &::before {
                     content: '';
                     width: 100%;
                     height: 100%;
@@ -336,36 +372,44 @@
                 width: 60%;
                 height: 100%;
                 color: #fff;
-                h1{
+
+                h1 {
                     padding: 25px;
                     font-size: 40px;
                 }
-                p{
+
+                p {
                     font-size: 18px;
                     padding: 0 25px;
                     line-height: 1.7em;
                 }
+
                 ul {
                     padding: 25px;
                     display: grid;
-                    grid-template-columns: repeat(2,1fr);
+                    grid-template-columns: repeat(2, 1fr);
                     list-style: none;
-                    li{
+
+                    li {
                         font-size: 18px;
                         line-height: 2em;
                         text-transform: capitalize;
-                        span{
+
+                        span {
                             color: lighten($color: #333, $amount: 40%);
                             font-size: 16px;
                         }
                     }
                 }
-                .btn{
+
+                .btn {
                     padding: 0 20px;
+
                     &:hover {
-                        animation: jello-vertical .9s ;
+                        animation: jello-vertical .9s;
                     }
-                    a{
+
+                    a {
                         padding: 10px 35px;
                         background-color: $green;
                         border-radius: 15px;
@@ -373,12 +417,42 @@
                 }
             }
 
-            .secondPart{
-                  .hr{
+            .secondPart {
+                .hr {
                     margin-top: 30px;
                     width: 100%;
-                    background-image: linear-gradient(to right, rgba(185, 143, 95, 0.15), $green, rgba(185, 143, 95, 0.15));;
+                    background-image: linear-gradient(to right, rgba(185, 143, 95, 0.15), $green, rgba(185, 143, 95, 0.15));
+                    ;
                     height: 1px;
+                }
+                .project{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    text-align: center;
+                    color: #fff;
+                    margin: 15px 0;
+                    padding: 0 20px;
+                    span{
+                        display: block;
+                        font-size: 20px;
+                        margin-bottom: 10px;
+                    }
+                    i{
+                        display: block;
+                        font-size: 30px;
+                        margin-bottom: 20px;
+                        &.bxl-wordpress{
+                            color:#44a1c6;
+                        }
+                        &.bxl-php{
+                            color: #7377ad;
+                        }
+                        &.bxl-vuejs{
+                            color:#3fb27f
+                        }
+
+                    }
                 }
             }
         }
@@ -408,6 +482,39 @@
             h1 {
                 font-size: 5em;
                 color: $green;
+            }
+        }
+        .footer{
+            height: 80px;
+            display: none;
+            .btn {
+                a{
+                    color: #fff;
+                    padding: 10px 25px;
+                    background-color: $green;
+                    border-radius: 15px;
+                }
+            }
+            .socialMedia{
+                text-align: center;
+                font-size: 22px;
+                
+                i {
+                    margin: 20px 0;
+                    display: inline-block;
+                }
+    
+                .bxl-instagram {
+                    color: #fd233e;
+                }
+    
+                .bxl-whatsapp {
+                    color: #55c861;
+                }
+    
+                .bxl-linkedin {
+                    color: #0961b8;
+                }
             }
         }
     }
@@ -504,4 +611,142 @@
         }
     }
 
+}
+
+@media (max-width: 768px) {
+  
+    #desktop {
+        position: relative;
+        flex-direction: column;
+        .navIcon{
+            display: flex !important;
+            cursor: pointer;
+            z-index: 999;
+        }
+        .rotate{
+            .mid{
+                transform: rotate(-45deg) translateY(-6px);
+                transition: 300ms;
+            
+            }
+            .top{
+                transform: rotate(45deg) translateY(4px) translateX(-2px);
+                transition: 300ms;
+
+            }
+            .bot{
+                display: none;
+            }
+        }
+        .nonActive {
+            display: none;
+        }
+        .title {
+            text-align: center;
+            margin: 15px 0;
+            font-size: 32px !important;
+        }
+        .smallNav,
+        .bigNav {
+            position: absolute;
+            z-index: 99;
+            height: 100%;
+            .btn{
+                text-align: center;
+                display: block !important;
+
+                a {
+                    padding: 10px 30px !important;
+                    border-radius: 15px;
+                    background-color: $green;
+
+                }
+            }
+            .img {
+                width: 180px !important;
+                height: 180px !important;
+            }
+            #botNav {
+                ul {
+                    list-style: none;
+                    display: grid;
+                    height: 80%;
+                    grid-template-columns: repeat(3, 1fr);
+
+                    li {
+                        text-align: center;
+                        font-size: 25px;
+                        height: 30px;
+                        width: 40px;
+                        margin: 0 auto;
+                        display: block;
+                        animation: none;
+                        span {
+                            display: block;
+                            font-size: 14px;
+                            text-align: center;
+                            margin-top: -20px;
+                            display: none;
+                        }
+
+                        padding: 25px;
+                        transition: $mainTransition;
+
+                        &:hover {
+                            color: $green;
+                            cursor: pointer;
+
+                            span {
+                                margin-top: 0;
+                                overflow: hidden;
+                                display: block;
+                            }
+                        }
+                    }
+
+                    li.active {
+                        animation: none !important;
+
+                        span {
+                            margin-top: 0;
+                            overflow: hidden;
+                            display: block;
+                        }
+
+                        color:$green;
+                        animation: none !important;
+                    }
+                }
+            }
+        }
+        #content{
+            #home{
+                flex-direction: column ;
+                text-align: center;
+                justify-content: space-evenly;
+                .description{
+                    .headImg{
+                        width: 200px;
+                        height: 200px;
+                        display: block;
+                    }
+                    h1 {
+                        font-size: 30px;
+                    }
+                    .desc{
+                        p{
+                            font-size: 25px;
+                        }
+                    }
+                }
+            }
+            .footer{
+                display: block;
+            }
+        }
+
+        #controller {
+            display: none;
+        }
+    }
 }

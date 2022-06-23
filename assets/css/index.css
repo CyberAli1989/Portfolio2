@@ -89,6 +89,10 @@ video {
   font-family: "Patrick Hand", cursive;
 }
 
+body {
+  overflow: hidden;
+}
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -270,6 +274,16 @@ a {
     opacity: 1;
   }
 }
+.exit {
+  -webkit-animation: bounce-out-top 1.5s both;
+  animation: bounce-out-top 1.5s both;
+}
+
+.enter {
+  -webkit-animation: roll-in-bottom 0.6s ease-out both;
+  animation: roll-in-bottom 0.6s ease-out both;
+}
+
 #desktop {
   height: 95vh;
   display: flex;
@@ -457,14 +471,30 @@ a {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  position: relative;
 }
-#desktop #content .exit {
-  -webkit-animation: bounce-out-top 1.5s both;
-  animation: bounce-out-top 1.5s both;
+#desktop #content .navIcon {
+  display: none;
+  color: #fff;
+  position: absolute;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  margin: 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-#desktop #content .enter {
-  -webkit-animation: roll-in-bottom 0.6s ease-out both;
-  animation: roll-in-bottom 0.6s ease-out both;
+#desktop #content .navIcon .top,
+#desktop #content .navIcon .mid,
+#desktop #content .navIcon .bot {
+  margin: 2px;
+  width: 20px;
+  height: 2px;
+  background: #3DBA8E;
+  transition: 300ms;
 }
 #desktop #content #home {
   padding: 10px;
@@ -479,6 +509,15 @@ a {
 #desktop #content #home .description {
   width: 80%;
   font-size: 25px;
+}
+#desktop #content #home .description .headImg {
+  width: 180px;
+  height: 180px;
+  background-color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  margin: 0 auto;
+  display: none;
 }
 #desktop #content #home .description h1 {
   font-size: 48px;
@@ -590,6 +629,34 @@ a {
   background-image: linear-gradient(to right, rgba(185, 143, 95, 0.15), #3DBA8E, rgba(185, 143, 95, 0.15));
   height: 1px;
 }
+#desktop #content #about .secondPart .project {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  color: #fff;
+  margin: 15px 0;
+  padding: 0 20px;
+}
+#desktop #content #about .secondPart .project span {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+#desktop #content #about .secondPart .project i {
+  display: block;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+#desktop #content #about .secondPart .project i.bxl-wordpress {
+  color: #44a1c6;
+}
+#desktop #content #about .secondPart .project i.bxl-php {
+  color: #7377ad;
+}
+#desktop #content #about .secondPart .project i.bxl-vuejs {
+  color: #3fb27f;
+}
 #desktop #content #resume h1 {
   font-size: 5em;
   color: #3DBA8E;
@@ -605,6 +672,33 @@ a {
 #desktop #content #contact h1 {
   font-size: 5em;
   color: #3DBA8E;
+}
+#desktop #content .footer {
+  height: 80px;
+  display: none;
+}
+#desktop #content .footer .btn a {
+  color: #fff;
+  padding: 10px 25px;
+  background-color: #3DBA8E;
+  border-radius: 15px;
+}
+#desktop #content .footer .socialMedia {
+  text-align: center;
+  font-size: 22px;
+}
+#desktop #content .footer .socialMedia i {
+  margin: 20px 0;
+  display: inline-block;
+}
+#desktop #content .footer .socialMedia .bxl-instagram {
+  color: #fd233e;
+}
+#desktop #content .footer .socialMedia .bxl-whatsapp {
+  color: #55c861;
+}
+#desktop #content .footer .socialMedia .bxl-linkedin {
+  color: #0961b8;
 }
 #desktop #controller {
   border-radius: 15px;
@@ -682,6 +776,131 @@ a {
   display: block;
   font-size: 25px;
   color: #3DBA8E;
+}
+
+@media (max-width: 768px) {
+  #desktop {
+    position: relative;
+    flex-direction: column;
+  }
+  #desktop .navIcon {
+    display: flex !important;
+    cursor: pointer;
+    z-index: 999;
+  }
+  #desktop .rotate .mid {
+    transform: rotate(-45deg) translateY(-6px);
+    transition: 300ms;
+  }
+  #desktop .rotate .top {
+    transform: rotate(45deg) translateY(4px) translateX(-2px);
+    transition: 300ms;
+  }
+  #desktop .rotate .bot {
+    display: none;
+  }
+  #desktop .nonActive {
+    display: none;
+  }
+  #desktop .title {
+    text-align: center;
+    margin: 15px 0;
+    font-size: 32px !important;
+  }
+  #desktop .smallNav,
+#desktop .bigNav {
+    position: absolute;
+    z-index: 99;
+    height: 100%;
+  }
+  #desktop .smallNav .btn,
+#desktop .bigNav .btn {
+    text-align: center;
+    display: block !important;
+  }
+  #desktop .smallNav .btn a,
+#desktop .bigNav .btn a {
+    padding: 10px 30px !important;
+    border-radius: 15px;
+    background-color: #3DBA8E;
+  }
+  #desktop .smallNav .img,
+#desktop .bigNav .img {
+    width: 180px !important;
+    height: 180px !important;
+  }
+  #desktop .smallNav #botNav ul,
+#desktop .bigNav #botNav ul {
+    list-style: none;
+    display: grid;
+    height: 80%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #desktop .smallNav #botNav ul li,
+#desktop .bigNav #botNav ul li {
+    text-align: center;
+    font-size: 25px;
+    height: 30px;
+    width: 40px;
+    margin: 0 auto;
+    display: block;
+    animation: none;
+    padding: 25px;
+    transition: 280ms;
+  }
+  #desktop .smallNav #botNav ul li span,
+#desktop .bigNav #botNav ul li span {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    margin-top: -20px;
+    display: none;
+  }
+  #desktop .smallNav #botNav ul li:hover,
+#desktop .bigNav #botNav ul li:hover {
+    color: #3DBA8E;
+    cursor: pointer;
+  }
+  #desktop .smallNav #botNav ul li:hover span,
+#desktop .bigNav #botNav ul li:hover span {
+    margin-top: 0;
+    overflow: hidden;
+    display: block;
+  }
+  #desktop .smallNav #botNav ul li.active,
+#desktop .bigNav #botNav ul li.active {
+    animation: none !important;
+    color: #3DBA8E;
+    animation: none !important;
+  }
+  #desktop .smallNav #botNav ul li.active span,
+#desktop .bigNav #botNav ul li.active span {
+    margin-top: 0;
+    overflow: hidden;
+    display: block;
+  }
+  #desktop #content #home {
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+  }
+  #desktop #content #home .description .headImg {
+    width: 200px;
+    height: 200px;
+    display: block;
+  }
+  #desktop #content #home .description h1 {
+    font-size: 30px;
+  }
+  #desktop #content #home .description .desc p {
+    font-size: 25px;
+  }
+  #desktop #content .footer {
+    display: block;
+  }
+  #desktop #controller {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

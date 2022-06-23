@@ -8,22 +8,21 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="node_modules/boxicons/css/boxicons.min.css">
     <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="node_modules/elastic-hover-gsap/style.css">
+    <!-- <link rel="stylesheet" href="node_modules/elastic-hover-gsap/style.css"> -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script>
-    <script src="node_modules/elastic-hover-gsap/script.js"></script>
+    <!-- <script src="node_modules/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script> -->
+    <!-- <script src="node_modules/elastic-hover-gsap/script.js"></script> -->
     <script src="assets/js/nav.js"></script>
     <script src="assets/js/date.js"></script>
+    <script src="assets/js/counter.js"></script>
 
 </head>
 
 <body>
-    <div class="cursor">
-        <span class="bx bx-wifi-0"></span>
-    </div>
+   
     <div class="container">
         <div id="desktop">
-            <nav class="bigNav">
+            <nav class="bigNav nonActive">
                 <div id="topNav">
                     <div class="img"></div>
                     <div class="title">
@@ -65,8 +64,14 @@
                 </div>
             </nav>
             <div id="content">
+                <div class="navIcon">
+                    <div class="top"></div>
+                    <div class="mid"></div>
+                    <div class="bot"></div>
+                </div>
                 <section id="home">
                     <div class="description">
+                        <div class="headImg"></div>
                         <div class="title">
                             <h1>
                                 Web Designer
@@ -116,7 +121,27 @@
                     <div class="secondPart">
                         <div class="hr"></div>
                         <div class="project">
-                            Coming Soon !
+                            <div class="wordpress">
+                                <i class='bx bxl-wordpress'></i>
+                                <span class="count1">1</span>
+                                <span>WordPress</span>
+                            </div>
+                            <div class="wordpress">
+                                <i class='bx bxl-php'></i>
+                                <span class="count2">1</span>
+                                <span>Php</span>
+                            </div>
+                            <div class="wordpress">
+                                <i class='bx bxl-vuejs' ></i>
+                                <span class="count3">1</span>
+
+                                <span>Vue</span>
+                            </div>
+                            <div class="wordpress">
+                                <i class='bx bx-data'></i>
+                                <span class="count4">1</span>
+                                <span>DataBase</span>
+                            </div>
                         </div>
                         <div class="hr"></div>
                     </div>
@@ -133,6 +158,18 @@
                 <section id="contact">
                     <h1>Contact</h1>
                 </section>
+                <div class="footer">
+                    <div class="btn">
+                        <a href="#">
+                            Download CV
+                        </a>
+                        <div class="socialMedia">
+                            <i class='bx bxl-whatsapp'></i>
+                            <i class='bx bxl-instagram'></i>
+                            <i class='bx bxl-linkedin'></i>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="controller">
                 <div class="date">
@@ -156,6 +193,7 @@
                     <i class='bx bxs-chevron-down'></i>
                 </div>
             </div>
+            
         </div>
     </div>
   
