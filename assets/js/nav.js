@@ -28,7 +28,7 @@ $(function () {
             $('#blog').hide()
             $('#contact').hide()
 
-        }, 1500);
+        }, 500);
     });
 
     $('[data-id="home"]').click(function (e) {
@@ -47,7 +47,7 @@ $(function () {
             $('#works').hide()
             $('#blog').hide()
             $('#contact').hide()
-        }, 1500);
+        }, 500);
     });
 
     $('[data-id="resume"]').click(function (e) {
@@ -66,7 +66,7 @@ $(function () {
             $('#blog').hide()
             $('#contact').hide()
 
-        }, 1500);
+        }, 500);
     });
     $('[data-id="works"]').click(function (e) {
         e.preventDefault();
@@ -84,7 +84,7 @@ $(function () {
             $('#blog').hide()
             $('#contact').hide()
 
-        }, 1500);
+        }, 500);
     });
 
     $('[data-id="blog"]').click(function (e) {
@@ -103,7 +103,7 @@ $(function () {
             $('#works').hide()
             $('#contact').hide()
 
-        }, 1500);
+        }, 500);
     });
 
     $('[data-id="contact"]').click(function (e) {
@@ -122,7 +122,7 @@ $(function () {
             $('#works').hide()
             $('#blog').hide()
 
-        }, 1500);
+        }, 500);
     });
 
     let close = true;

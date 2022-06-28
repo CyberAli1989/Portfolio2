@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap");
 html,
 body,
 div,
@@ -86,7 +86,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  font-family: "Patrick Hand", cursive;
+  font-family: "Cormorant Garamond", serif;
 }
 
 body {
@@ -274,14 +274,46 @@ a {
     opacity: 1;
   }
 }
+@keyframes slide-in-blurred-bottom {
+  0% {
+    -webkit-transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+    transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+    transform: translateY(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-out-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+}
 .exit {
-  -webkit-animation: bounce-out-top 1.5s both;
-  animation: bounce-out-top 1.5s both;
+  -webkit-animation: slide-out-top 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: slide-out-top 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
 .enter {
-  -webkit-animation: roll-in-bottom 0.6s ease-out both;
-  animation: roll-in-bottom 0.6s ease-out both;
+  -webkit-animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
 #desktop {
@@ -522,6 +554,7 @@ a {
 #desktop #content #home .description h1 {
   font-size: 48px;
   font-weight: 800;
+  margin-left: 29px;
 }
 #desktop #content #home .description .desc {
   margin-left: 20px;
@@ -656,6 +689,54 @@ a {
 }
 #desktop #content #about .secondPart .project i.bxl-vuejs {
   color: #3fb27f;
+}
+#desktop #content #about .secondPart .skills {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  color: #fff;
+}
+#desktop #content #about .secondPart .skills div:first-child {
+  flex-basis: 70%;
+  margin-right: 25px;
+}
+#desktop #content #about .secondPart .skills h1 {
+  font-size: 35px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+#desktop #content #about .secondPart .skills p {
+  font-size: 18px;
+  line-height: 1.5em;
+  font-weight: 600;
+}
+#desktop #content #about .secondPart .skills ul li {
+  padding: 12px;
+  font-weight: 600;
+  position: relative;
+}
+#desktop #content #about .secondPart .skills ul li::before {
+  position: absolute;
+  left: -10px;
+  content: "";
+  width: 15px;
+  height: 15px;
+  color: #3DBA8E;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid #3DBA8E;
+}
+#desktop #content #about .secondPart .skills ul li::after {
+  position: absolute;
+  left: -7.5px;
+  top: 14px;
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: #3DBA8E;
+  display: inline-block;
+  border-radius: 50%;
 }
 #desktop #content #resume h1 {
   font-size: 5em;

@@ -1,23 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
 @import '--reset.scss';
 @import '--temp.scss';
 @import '--variables.scss';
 @import '--animation.scss';
+
 .exit {
-    -webkit-animation: bounce-out-top 1.5s both;
-    animation: bounce-out-top 1.5s both;
+    -webkit-animation: slide-out-top 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: slide-out-top 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+
 }
 
 .enter {
-    -webkit-animation: roll-in-bottom 0.6s ease-out both;
-    animation: roll-in-bottom 0.6s ease-out both;
+    -webkit-animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+    animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
 }
+
 #desktop {
     height: 95vh;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+
     .smallNav {
         border-radius: 15px;
         transition: 1s;
@@ -243,8 +247,8 @@
         align-items: center;
         overflow: hidden;
         position: relative;
-        
-        .navIcon{
+
+        .navIcon {
             display: none;
             color: #fff;
             position: absolute;
@@ -257,9 +261,10 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
             .top,
             .mid,
-            .bot{
+            .bot {
                 margin: 2px;
                 width: 20px;
                 height: 2px;
@@ -268,7 +273,7 @@
 
             }
         }
-       
+
 
         #home {
             padding: 10px;
@@ -281,7 +286,7 @@
             margin: auto 0;
 
             .description {
-                .headImg{
+                .headImg {
                     width: 180px;
                     height: 180px;
                     background-color: #fff;
@@ -290,12 +295,14 @@
                     margin: 0 auto;
                     display: none;
                 }
+
                 width: 80%;
                 font-size: 25px;
 
                 h1 {
                     font-size: 48px;
                     font-weight: 800;
+                    margin-left: 29px;
                 }
 
                 .desc {
@@ -425,7 +432,8 @@
                     ;
                     height: 1px;
                 }
-                .project{
+
+                .project {
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
@@ -433,25 +441,83 @@
                     color: #fff;
                     margin: 15px 0;
                     padding: 0 20px;
-                    span{
+
+                    span {
                         display: block;
                         font-size: 20px;
                         margin-bottom: 10px;
                     }
-                    i{
+
+                    i {
                         display: block;
                         font-size: 30px;
                         margin-bottom: 20px;
-                        &.bxl-wordpress{
-                            color:#44a1c6;
-                        }
-                        &.bxl-php{
-                            color: #7377ad;
-                        }
-                        &.bxl-vuejs{
-                            color:#3fb27f
+
+                        &.bxl-wordpress {
+                            color: #44a1c6;
                         }
 
+                        &.bxl-php {
+                            color: #7377ad;
+                        }
+
+                        &.bxl-vuejs {
+                            color: #3fb27f
+                        }
+
+                    }
+                }
+                .skills{
+                    margin-top: 25px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    color: #fff;
+                    div:first-child {
+                        flex-basis: 70%;
+                        margin-right: 25px;
+                    }
+                    h1{
+                        font-size: 35px;
+                        font-weight: 800;
+                        margin-bottom: 30px;
+                    }
+                    p{
+                        font-size: 18px;
+                        line-height: 1.5em;
+                        font-weight: 600;
+                    }
+                    ul {
+                        li {
+                            padding: 12px;
+                            font-weight: 600;
+                            position: relative;
+                            &::before{
+                                position: absolute;
+                                left: -10px;
+                                content: '';
+                                width: 15px;
+                                height: 15px;
+                                // margin: -3px 15px;
+                                color: $green;
+                                display: inline-block;
+                                border-radius: 50%;
+                                border: 1px solid $green ;
+                            }
+                            &::after{
+                                position: absolute;
+                                left: -7.5px;
+                                top: 14px;
+                                content: '';
+                                width: 12px;
+                                height: 12px;
+                                // margin: -3px 15px;
+                                background-color: $green;
+                                display: inline-block;
+                                border-radius: 50%;
+                                // border: 1px double $green ;
+                            }
+                        }
                     }
                 }
             }
@@ -484,34 +550,37 @@
                 color: $green;
             }
         }
-        .footer{
+
+        .footer {
             height: 80px;
             display: none;
+
             .btn {
-                a{
+                a {
                     color: #fff;
                     padding: 10px 25px;
                     background-color: $green;
                     border-radius: 15px;
                 }
             }
-            .socialMedia{
+
+            .socialMedia {
                 text-align: center;
                 font-size: 22px;
-                
+
                 i {
                     margin: 20px 0;
                     display: inline-block;
                 }
-    
+
                 .bxl-instagram {
                     color: #fd233e;
                 }
-    
+
                 .bxl-whatsapp {
                     color: #55c861;
                 }
-    
+
                 .bxl-linkedin {
                     color: #0961b8;
                 }
@@ -614,44 +683,52 @@
 }
 
 @media (max-width: 768px) {
-  
+
     #desktop {
         position: relative;
         flex-direction: column;
-        .navIcon{
+
+        .navIcon {
             display: flex !important;
             cursor: pointer;
             z-index: 999;
         }
-        .rotate{
-            .mid{
+
+        .rotate {
+            .mid {
                 transform: rotate(-45deg) translateY(-6px);
                 transition: 300ms;
-            
+
             }
-            .top{
+
+            .top {
                 transform: rotate(45deg) translateY(4px) translateX(-2px);
                 transition: 300ms;
 
             }
-            .bot{
+
+            .bot {
                 display: none;
             }
         }
+
         .nonActive {
             display: none;
         }
+
         .title {
             text-align: center;
             margin: 15px 0;
             font-size: 32px !important;
         }
+
         .smallNav,
         .bigNav {
             position: absolute;
             z-index: 99;
             height: 100%;
-            .btn{
+
+            .btn {
                 text-align: center;
                 display: block !important;
 
@@ -662,10 +739,12 @@
 
                 }
             }
+
             .img {
                 width: 180px !important;
                 height: 180px !important;
             }
+
             #botNav {
                 ul {
                     list-style: none;
@@ -681,6 +760,7 @@
                         margin: 0 auto;
                         display: block;
                         animation: none;
+
                         span {
                             display: block;
                             font-size: 14px;
@@ -719,28 +799,33 @@
                 }
             }
         }
-        #content{
-            #home{
-                flex-direction: column ;
+
+        #content {
+            #home {
+                flex-direction: column;
                 text-align: center;
                 justify-content: space-evenly;
-                .description{
-                    .headImg{
+
+                .description {
+                    .headImg {
                         width: 200px;
                         height: 200px;
                         display: block;
                     }
+
                     h1 {
                         font-size: 30px;
                     }
-                    .desc{
-                        p{
+
+                    .desc {
+                        p {
                             font-size: 25px;
                         }
                     }
                 }
             }
-            .footer{
+
+            .footer {
                 display: block;
             }
         }
